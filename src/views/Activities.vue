@@ -4,7 +4,6 @@
 
 <script>
 import getActivitiesData from "@/api";
-
 export default {
   name: "Activities",
   data() {
@@ -13,8 +12,7 @@ export default {
     };
   },
   mounted() {
-    this.activities = getActivitiesData();
-    console.log(this.activities);
+    getActivitiesData().then((res) => (this.activities = res));
   },
 };
 </script>
