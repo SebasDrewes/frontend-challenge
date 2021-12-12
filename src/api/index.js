@@ -24,3 +24,14 @@ export function similarActivities(category, amount) {
     .then((activities) => activities.sort((a, b) => 0.5 - Math.random()))
     .then((activities) => activities.slice(0, amount));
 }
+export function randomActivities(amount) {
+  const randomPage = Math.random() * (200 - 1) + 1;
+
+  return fetch(
+    `https://json-biglifeapp.herokuapp.com/activity?_page=${randomPage}&_limit=${amount}`
+  )
+    .then((activities) => activities.json())
+    .then((activities) =>
+      activities.map((activity) => JSON.parse(activity.activity))
+    );
+}
