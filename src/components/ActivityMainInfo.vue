@@ -34,7 +34,6 @@ console.log(props);
 .mainActivityDescription {
   display: flex;
   height: 371px;
-  margin: 97px;
 }
 .activityImage {
   width: 563px;

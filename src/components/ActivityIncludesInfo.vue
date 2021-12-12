@@ -18,7 +18,6 @@ const props = defineProps(["activity"]);
   display: flex;
   flex-direction: column;
   width: 50%;
-  margin-left: 100px;
 }
 .includesTitle {
   color: #464646;
@@ -29,6 +28,7 @@ const props = defineProps(["activity"]);
   text-align: left;
   margin: 13px;
   margin-bottom: 7px;
+  margin-top: 120px;
 }
 .orangeLine {
   border: 1.5px solid #ff6c5f;
@@ -44,13 +44,13 @@ const props = defineProps(["activity"]);
   background: #eaeaea;
 }
 .includesTitleContainer {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 .activityBenefits {
   color: #4f4f4f;
   font-size: 18px;
   font-weight: 300;
-  line-height: 23px;
+  line-height: 22.5px;
   margin: 0;
 }
 .activityBenefits >>> li {
