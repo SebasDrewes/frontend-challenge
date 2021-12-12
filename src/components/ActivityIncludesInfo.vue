@@ -1,8 +1,11 @@
 <template>
   <div class="includesContainer">
-    <h3 class="includesTitle">¿Qué incluye?</h3>
-    <div class="orangeLine"></div>
-    <div class="greyLine"></div>
+    <div class="includesTitleContainer">
+      <h3 class="includesTitle">¿Qué incluye?</h3>
+      <div class="orangeLine" />
+      <div class="greyLine" />
+    </div>
+    <div class="activityBenefits" v-html="activity.benefits"></div>
   </div>
 </template>
 
@@ -14,6 +17,7 @@ const props = defineProps(["activity"]);
 .includesContainer {
   display: flex;
   flex-direction: column;
+  width: 50%;
   margin-left: 100px;
 }
 .includesTitle {
@@ -38,5 +42,18 @@ const props = defineProps(["activity"]);
   width: 503px;
   border: 0.5px solid #eaeaea;
   background: #eaeaea;
+}
+.includesTitleContainer {
+  margin-bottom: 40px;
+}
+.activityBenefits {
+  color: #4f4f4f;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 23px;
+  margin: 0;
+}
+.activityBenefits >>> li {
+  margin-bottom: 20px;
 }
 </style>
