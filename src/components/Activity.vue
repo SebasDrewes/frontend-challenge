@@ -1,5 +1,5 @@
 <template>
-  <div class="activityContainer">
+  <div class="activityContainer" @click="toDetails(activity.id)">
     <img :src="activity.image[0]" :alt="activity.name" class="activityImage" />
     <div class="activityTitleContainer">
       <p class="activityTitle">{{ activity.name }}</p>
@@ -23,6 +23,11 @@
 <script>
 export default {
   props: ["activity"],
+  methods: {
+    toDetails(id) {
+      this.$router.push({ name: "ActivitiesDetails", params: { id: id } });
+    },
+  },
 };
 </script>
 
