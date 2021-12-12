@@ -1,5 +1,8 @@
 <template>
-  <div class="activityDetail">
+  <div v-if="isLoading">
+    <p>Loading...</p>
+  </div>
+  <div v-else class="activityDetail">
     <ActivityMainInfo :activity="activity" />
     <ActivityIncludesInfo :activity="activity" />
     <ActivityRules :activity="activity" />
@@ -17,9 +20,11 @@ import { ref, onMounted } from "vue";
 
 const props = defineProps(["id"]);
 const activity = ref({});
+const isLoading = ref(true);
 
 async function fetchActivityData(id) {
   activity.value = await getActivity(id);
+  isLoading.value = false;
 }
 
 onMounted(fetchActivityData(props.id));

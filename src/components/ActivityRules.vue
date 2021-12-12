@@ -13,6 +13,9 @@ const props = defineProps(["activity"]);
 </script>
 
 <style scoped>
+.rulesContainer {
+  width: 50%;
+}
 .rulesTitleContainer {
   display: flex;
   align-items: center;
