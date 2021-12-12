@@ -1,6 +1,10 @@
 <template>
   <div class="activityContainer" @click="toDetails(activity.id)">
-    <img :src="activity.image[0]" :alt="activity.name" class="activityImage" />
+    <img
+      :src="activity.image[0]"
+      :alt="activity.name"
+      class="mediumActivityImage"
+    />
     <div class="activityTitleContainer">
       <p class="activityTitle">{{ activity.name }}</p>
       <img v-if="activity.participants === 1" src="@/assets/forOne.svg" />
@@ -20,16 +24,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ActivityItem",
-  props: ["activity"],
-  methods: {
-    toDetails(id) {
-      this.$router.push({ name: "ActivityDetails", params: { id: id } });
-    },
-  },
-};
+<script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
+const props = defineProps(["activity", "small, medium"]);
+function toDetails(id) {
+  router.push({ name: "ActivityDetails", params: { id: id } });
+}
 </script>
 
 <style scoped>
@@ -41,7 +42,11 @@ export default {
   margin: 22px 11px;
   cursor: pointer;
 }
-.activityImage {
+.mediumActivityImage {
+  height: 240px;
+  border-radius: 4px;
+}
+.smallActivityImage {
   height: 240px;
   border-radius: 4px;
 }
