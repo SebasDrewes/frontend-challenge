@@ -28,7 +28,7 @@ const props = defineProps(["activity"]);
   text-align: left;
   margin: 13px;
   margin-bottom: 7px;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 .orangeLine {
   border: 1.5px solid #ff6c5f;

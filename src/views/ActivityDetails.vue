@@ -3,6 +3,11 @@
     <p>Loading...</p>
   </div>
   <div v-else class="activityDetail">
+    <img
+      class="backArrow"
+      src="@/assets/backArrow.svg"
+      @click="goToActividades"
+    />
     <ActivityMainInfo :activity="activity" />
     <ActivityIncludesInfo :activity="activity" />
     <ActivityRules :activity="activity" />
@@ -17,12 +22,16 @@ import ActivityRules from "@/components/ActivityRules.vue";
 import SimilarActivities from "@/components/SimilarActivities.vue";
 import { getActivity } from "@/api";
 import { ref, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const props = defineProps(["id"]);
 const activity = ref({});
 const isLoading = ref(true);
+const router = useRouter();
 const route = useRoute();
+function goToActividades() {
+  router.push("/actividades");
+}
 
 async function fetchActivityData(id) {
   activity.value = await getActivity(id);
@@ -39,9 +48,13 @@ onMounted(fetchActivityData(props.id));
 
 <style scoped>
 .activityDetail {
-  margin-top: 111px;
+  margin-top: 65px;
   margin-left: 100px;
   margin-bottom: 119px;
   margin-right: 104px;
+}
+.backArrow {
+  margin-bottom: 23px;
+  cursor: pointer;
 }
 </style>

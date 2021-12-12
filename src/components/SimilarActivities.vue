@@ -42,6 +42,6 @@ watch(
   font-weight: 700;
   line-height: 30px;
   letter-spacing: -1px;
-  margin: 64px 0 40px;
+  margin: 64px 0 30px;
 }
 </style>
