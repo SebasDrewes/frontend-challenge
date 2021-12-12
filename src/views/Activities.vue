@@ -11,17 +11,19 @@
 <script>
 import Activity from "../components/Activity.vue";
 import getActivitiesData from "@/api";
+import { ref, onMounted } from "vue";
 export default {
   name: "Activities",
   components: { Activity },
-  data() {
+  setup() {
+    const activities = ref([]);
+    async function fetchActivitiesData() {
+      activities.value = await getActivitiesData();
+    }
+    onMounted(fetchActivitiesData);
     return {
-      activities: [],
+      activities,
     };
-  },
-  mounted() {
-    console.log(getActivitiesData());
-    getActivitiesData().then((res) => (this.activities = res));
   },
 };
 </script>
