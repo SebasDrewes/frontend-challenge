@@ -20,6 +20,7 @@ export default {
     };
   },
   mounted() {
+    console.log(getActivitiesData());
     getActivitiesData().then((res) => (this.activities = res));
   },
 };

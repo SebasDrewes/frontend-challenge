@@ -3,7 +3,8 @@
     <img :src="activity.image[0]" :alt="activity.name" class="activityImage" />
     <div class="activityTitleContainer">
       <p class="activityTitle">{{ activity.name }}</p>
-      <img src="./../assets/forOne.svg" />
+      <img v-if="activity.participants === 1" src="./../assets/forOne.svg" />
+      <img v-else src="./../assets/forGroup.svg" />
     </div>
     <div class="locationContainer">
       <img src="./../assets/location.svg" class="locationIcon" />
