@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  name: "ActivityItem",
   props: ["activity"],
   methods: {
     toDetails(id) {
@@ -40,6 +41,7 @@ export default {
   color: #464646;
   width: 369px;
   margin: 22px 11px;
+  cursor: pointer;
 }
 .activityImage {
   height: 240px;

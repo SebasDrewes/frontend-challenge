@@ -1,6 +1,6 @@
 <template>
   <div class="activities">
-    <Activity
+    <ActivityItem
       v-for="activity in activities"
       :key="activity.id"
       :activity="activity"
@@ -8,24 +8,15 @@
   </div>
 </template>
 
-<script>
-import Activity from "@/components/Activity.vue";
+<script setup>
+import ActivityItem from "@/components/ActivityItem.vue";
 import { getActivitiesData } from "@/api";
 import { ref, onMounted } from "vue";
-export default {
-  name: "Activities",
-  components: { Activity },
-  setup() {
-    const activities = ref([]);
-    async function fetchActivitiesData() {
-      activities.value = await getActivitiesData();
-    }
-    onMounted(fetchActivitiesData);
-    return {
-      activities,
-    };
-  },
-};
+const activities = ref([]);
+async function fetchActivitiesData() {
+  activities.value = await getActivitiesData();
+}
+onMounted(fetchActivitiesData);
 </script>
 <style scoped>
 .activities {
