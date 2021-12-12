@@ -25,4 +25,58 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap");
+.activityContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: Quicksand;
+  color: #464646;
+  width: 369px;
+  margin: 22px 11px;
+}
+.activityImage {
+  height: 240px;
+  border-radius: 4px;
+}
+.activityTitle {
+  margin: 14px 0 12px 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.5px;
+}
+.activityTitleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.locationContainer {
+  display: flex;
+  margin: 0;
+}
+.location {
+  margin: 0;
+  color: #000000;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.locationIcon {
+  margin-right: 8.75px;
+}
+.description {
+  margin: 12px 0 0 0;
+  text-align: left;
+  font-size: 14px;
+  min-height: 65px;
+  line-height: 14px;
+}
+.marketPrice {
+  font-size: 18px;
+  margin: 0;
+  text-align: left;
+  font-weight: 600;
+  line-height: 22.5px;
+}
+</style>
