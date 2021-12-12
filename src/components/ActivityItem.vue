@@ -29,7 +29,14 @@
     <p class="description">
       {{ activity.description }}
     </p>
-    <h3 class="marketPrice">{{ activity.market_price }} puntos</h3>
+    <h3
+      :class="{
+        mediumMarketPrice: medium,
+        smallMarketPrice: small,
+      }"
+    >
+      {{ activity.market_price }} puntos
+    </h3>
   </div>
 </template>
 
@@ -46,6 +53,7 @@ function toDetails(id) {
 .mediumActivityContainer {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   color: #464646;
   width: 369px;
   margin: 22px 11px;
@@ -53,6 +61,8 @@ function toDetails(id) {
 }
 .smallActivityContainer {
   display: flex;
+  position: relative;
+  min-height: 400px;
   flex-direction: column;
   color: #464646;
   width: 271px;
@@ -99,8 +109,19 @@ function toDetails(id) {
   font-size: 14px;
   min-height: 65px;
   line-height: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.marketPrice {
+.mediumMarketPrice {
+  font-size: 18px;
+  margin: 0;
+  text-align: left;
+  font-weight: 600;
+  line-height: 22.5px;
+}
+.smallMarketPrice {
+  position: absolute;
+  bottom: 0;
   font-size: 18px;
   margin: 0;
   text-align: left;

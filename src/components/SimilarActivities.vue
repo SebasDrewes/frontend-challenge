@@ -35,12 +35,13 @@ watch(
 <style>
 .similarActivitiesContainer {
   display: flex;
+  justify-content: space-evenly;
 }
 .similarActivitiesTitle {
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
   letter-spacing: -1px;
-  margin: 64px 0 47px;
+  margin: 64px 0 40px;
 }
 </style>
