@@ -25,7 +25,7 @@ export default {
   props: ["activity"],
   methods: {
     toDetails(id) {
-      this.$router.push({ name: "ActivitiesDetails", params: { id: id } });
+      this.$router.push({ name: "ActivityDetails", params: { id: id } });
     },
   },
 };

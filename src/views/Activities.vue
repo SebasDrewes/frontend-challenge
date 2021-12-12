@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Activity from "../components/Activity.vue";
-import getActivitiesData from "@/api";
+import Activity from "@/components/Activity.vue";
+import { getActivitiesData } from "@/api";
 import { ref, onMounted } from "vue";
 export default {
   name: "Activities",

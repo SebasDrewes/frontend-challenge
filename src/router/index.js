@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Activities from "@/views/Activities.vue";
-import ActivitiesDetails from "@/views/ActivitiesDetails.vue";
+import ActivityDetails from "@/views/ActivityDetails.vue";
 
 const routes = [
   {
@@ -10,8 +10,8 @@ const routes = [
   },
   {
     path: "/actividades/:id",
-    name: "ActivitiesDetails",
-    component: ActivitiesDetails,
+    name: "ActivityDetails",
+    component: ActivityDetails,
     props: true,
   },
 ];
