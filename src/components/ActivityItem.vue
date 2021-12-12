@@ -3,11 +3,11 @@
     <img :src="activity.image[0]" :alt="activity.name" class="activityImage" />
     <div class="activityTitleContainer">
       <p class="activityTitle">{{ activity.name }}</p>
-      <img v-if="activity.participants === 1" src="./../assets/forOne.svg" />
-      <img v-else src="./../assets/forGroup.svg" />
+      <img v-if="activity.participants === 1" src="@/assets/forOne.svg" />
+      <img v-else src="@/assets/forGroup.svg" />
     </div>
     <div class="locationContainer">
-      <img src="./../assets/location.svg" class="locationIcon" />
+      <img src="@/assets/location.svg" class="locationIcon" />
       <p class="location">
         {{ activity.locations[0].address }},
         {{ activity.locations[0].province }}
