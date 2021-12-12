@@ -1,9 +1,18 @@
 <template>
-  <div class="activityContainer" @click="toDetails(activity.id)">
+  <div
+    :class="{
+      mediumActivityContainer: medium,
+      smallActivityContainer: small,
+    }"
+    @click="toDetails(activity.id)"
+  >
     <img
       :src="activity.image[0]"
       :alt="activity.name"
-      class="mediumActivityImage"
+      :class="{
+        mediumActivityImage: medium,
+        smallActivityImage: small,
+      }"
     />
     <div class="activityTitleContainer">
       <p class="activityTitle">{{ activity.name }}</p>
@@ -27,18 +36,26 @@
 <script setup>
 import { useRouter } from "vue-router";
 const router = useRouter();
-const props = defineProps(["activity", "small, medium"]);
+const props = defineProps(["activity", "small", "medium"]);
 function toDetails(id) {
   router.push({ name: "ActivityDetails", params: { id: id } });
 }
 </script>
 
 <style scoped>
-.activityContainer {
+.mediumActivityContainer {
   display: flex;
   flex-direction: column;
   color: #464646;
   width: 369px;
+  margin: 22px 11px;
+  cursor: pointer;
+}
+.smallActivityContainer {
+  display: flex;
+  flex-direction: column;
+  color: #464646;
+  width: 271px;
   margin: 22px 11px;
   cursor: pointer;
 }
@@ -47,7 +64,7 @@ function toDetails(id) {
   border-radius: 4px;
 }
 .smallActivityImage {
-  height: 240px;
+  height: 200px;
   border-radius: 4px;
 }
 .activityTitle {

@@ -6,6 +6,7 @@
         v-for="activity in similarActivitesData"
         :key="activity.id"
         :activity="activity"
+        :small="true"
       />
     </div>
   </div>
@@ -13,14 +14,22 @@
 
 <script setup>
 import ActivityItem from "./ActivityItem.vue";
-import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { ref, onMounted, watch } from "vue";
 import { randomActivities } from "@/api";
+const route = useRoute();
 const similarActivitesData = ref([]);
 async function fetchActivityData() {
   const activityData = await randomActivities(4);
   similarActivitesData.value = activityData;
 }
 onMounted(fetchActivityData());
+watch(
+  () => route.params.id,
+  () => {
+    fetchActivityData();
+  }
+);
 </script>
 
 <style>

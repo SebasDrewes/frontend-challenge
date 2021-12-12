@@ -4,6 +4,7 @@
       v-for="activity in activities"
       :key="activity.id"
       :activity="activity"
+      :medium="true"
     />
   </div>
 </template>
