@@ -33,11 +33,9 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap");
 .activityContainer {
   display: flex;
   flex-direction: column;
-  font-family: Quicksand;
   color: #464646;
   width: 369px;
   margin: 22px 11px;

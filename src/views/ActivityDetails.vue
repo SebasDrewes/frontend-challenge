@@ -1,9 +1,9 @@
 <template>
-  <ActivityInfo :activity="activity" />
+  <ActivityMainInfo :activity="activity" />
 </template>
 
 <script setup>
-import ActivityInfo from "@/components/ActivityInfo.vue";
+import ActivityMainInfo from "@/components/ActivityMainInfo.vue";
 import { getActivity } from "@/api";
 import { ref, onMounted } from "vue";
 const props = defineProps(["id"]);
@@ -14,4 +14,4 @@ async function fetchActivityData(id) {
 onMounted(fetchActivityData(props.id));
 </script>
 
-<style></style>
+<style scoped></style>
