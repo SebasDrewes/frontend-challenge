@@ -3,6 +3,7 @@
     <ActivityMainInfo :activity="activity" />
     <ActivityIncludesInfo :activity="activity" />
     <ActivityRules :activity="activity" />
+    <SimilarActivities :category="activity.category" />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import ActivityMainInfo from "@/components/ActivityMainInfo.vue";
 import ActivityIncludesInfo from "@/components/ActivityIncludesInfo.vue";
 import ActivityRules from "@/components/ActivityRules.vue";
+import SimilarActivities from "@/components/SimilarActivities.vue";
 import { getActivity } from "@/api";
 import { ref, onMounted } from "vue";
 

@@ -17,6 +17,7 @@ async function fetchActivitiesData() {
   activities.value = await getActivitiesData();
 }
 onMounted(fetchActivitiesData);
+console.log(activities.value);
 </script>
 <style scoped>
 .activities {
