@@ -1,9 +1,11 @@
 <template>
   <ActivityMainInfo :activity="activity" />
+  <ActivityIncludesInfo :activity="activity" />
 </template>
 
 <script setup>
 import ActivityMainInfo from "@/components/ActivityMainInfo.vue";
+import ActivityIncludesInfo from "@/components/ActivityIncludesInfo.vue";
 import { getActivity } from "@/api";
 import { ref, onMounted } from "vue";
 const props = defineProps(["id"]);
