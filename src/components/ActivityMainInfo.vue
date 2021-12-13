@@ -1,6 +1,8 @@
 <template>
   <div class="mainActivityDescription">
-    <img :src="activity.image[0]" :alt="activity.name" class="activityImage" />
+    <div class="carouselContainer">
+      <Carousel :activity="activity" />
+    </div>
     <div class="activityDescriptionContainer">
       <h1 class="activityName">{{ activity.name }}</h1>
       <p class="activityDescription">{{ activity.description }}</p>
@@ -26,6 +28,7 @@
 </template>
 
 <script setup>
+import Carousel from "./Carousel.vue";
 const props = defineProps(["activity"]);
 console.log(props);
 </script>
@@ -34,10 +37,6 @@ console.log(props);
 .mainActivityDescription {
   display: flex;
   height: 371px;
-}
-.activityImage {
-  width: 563px;
-  border-radius: 4px;
 }
 .activityDescriptionContainer {
   margin-left: 33px;

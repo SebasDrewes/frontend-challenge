@@ -1,7 +1,23 @@
-<template></template>
+<template>
+  <vueper-slides fixed-height="371px">
+    <vueper-slide
+      v-for="(image, i) in activity.image"
+      :key="i"
+      :image="image"
+      :style="`border-radius: 4px`"
+    />
+  </vueper-slides>
+</template>
 
-<script>
-export default {};
+<script setup>
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
+const props = defineProps(["activity"]);
+console.log(props.activity);
 </script>
 
-<style></style>
+<style scoped>
+.vueperslides {
+  width: 563px;
+}
+</style>
