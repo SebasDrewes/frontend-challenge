@@ -1,5 +1,5 @@
 <template>
-  <vueper-slides fixed-height="371px" class="slide">
+  <vueper-slides 3d fixed-height="371px" class="slide">
     <vueper-slide
       v-for="(image, i) in activity.image"
       :key="i"
