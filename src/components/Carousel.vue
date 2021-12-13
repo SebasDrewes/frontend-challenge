@@ -16,8 +16,20 @@ const props = defineProps(["activity"]);
 console.log(props.activity);
 </script>
 
-<style scoped>
+<style>
 .slide {
   width: 563px;
+}
+.vueperslides__bullet .default {
+  background-color: #c4c4c4;
+  border: none;
+  box-shadow: none;
+  transition: 0.3s;
+  width: 9px;
+  height: 9px;
+}
+
+.vueperslides__bullet--active .default {
+  background-color: #ff6c5e;
 }
 </style>
