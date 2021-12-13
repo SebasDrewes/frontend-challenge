@@ -1,5 +1,5 @@
 <template>
-  <vueper-slides fixed-height="371px">
+  <vueper-slides fixed-height="371px" class="slide">
     <vueper-slide
       v-for="(image, i) in activity.image"
       :key="i"
@@ -17,7 +17,7 @@ console.log(props.activity);
 </script>
 
 <style scoped>
-.vueperslides {
+.slide {
   width: 563px;
 }
 </style>
