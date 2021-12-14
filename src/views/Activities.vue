@@ -7,10 +7,12 @@
       :medium="true"
     />
   </div>
+  <Pagination />
 </template>
 
 <script setup>
 import ActivityItem from "@/components/ActivityItem.vue";
+import Pagination from "@/components/Pagination.vue";
 import { getActivitiesData } from "@/api";
 import { ref, onMounted } from "vue";
 const activities = ref([]);
