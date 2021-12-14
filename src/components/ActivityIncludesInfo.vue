@@ -2,8 +2,8 @@
   <div class="includesContainer">
     <div class="includesTitleContainer">
       <h3 class="includesTitle">¿Qué incluye?</h3>
-      <div class="orangeLine" />
-      <div class="greyLine" />
+      <hr class="orangeLine" />
+      <hr class="greyLine" />
     </div>
     <div class="activityBenefits" v-html="activity.benefits"></div>
   </div>
@@ -36,12 +36,14 @@ const props = defineProps(["activity"]);
   position: relative;
   bottom: -1px;
   width: 156px;
+  margin: 0;
 }
 
 .greyLine {
   width: 503px;
   border: 0.5px solid #eaeaea;
   background: #eaeaea;
+  margin: 0;
 }
 .includesTitleContainer {
   margin-bottom: 25px;
