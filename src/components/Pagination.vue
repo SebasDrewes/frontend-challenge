@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { computed, defineEmit } from "vue";
+import { computed } from "vue";
 const props = defineProps([
   "maxVisibleButtons",
   "totalPages",
@@ -40,7 +40,8 @@ const props = defineProps([
 ]);
 
 const { currentPage, totalPages, perPage, maxVisibleButtons } = props;
-const emit = defineEmit(["pagechanged"]);
+const emit = defineEmits(["pagechanged"]);
+console.log(emit);
 const startPage = computed(() => {
   if (currentPage === 1) {
     return 1;
@@ -72,19 +73,19 @@ const isInLastPage = computed(() => {
   return currentPage === totalPages;
 });
 function onClickFirstPage() {
-  defineEmit("pagechanged", 1);
+  emit("pagechanged", 1);
 }
 function onClickPreviousPage() {
-  defineEmit("pagechanged", currentPage - 1);
+  emit("pagechanged", currentPage - 1);
 }
 function onClickPage(page) {
-  defineEmit("pagechanged", page);
+  emit("pagechanged", page);
 }
 function onClickNextPage() {
-  defineEmit("pagechanged", currentPage + 1);
+  emit("pagechanged", currentPage + 1);
 }
 function onClickLastPage() {
-  defineEmit("pagechanged", totalPages);
+  emit("pagechanged", totalPages);
 }
 function isPageActive(page) {
   return currentPage === page;
