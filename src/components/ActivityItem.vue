@@ -61,7 +61,7 @@ function toDetails(id) {
 .smallActivityContainer {
   display: flex;
   position: relative;
-  min-height: 400px;
+  height: 379px;
   flex-direction: column;
   color: #464646;
   width: 271px;
@@ -106,14 +106,16 @@ function toDetails(id) {
   margin: 12px 0 0 0;
   text-align: left;
   font-size: 14px;
-  min-height: 65px;
-  line-height: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  line-height: 14px;
   text-overflow: ellipsis;
 }
 .mediumMarketPrice {
   font-size: 18px;
-  margin: 0;
+  margin: 10px;
   text-align: left;
   font-weight: 600;
   line-height: 22.5px;

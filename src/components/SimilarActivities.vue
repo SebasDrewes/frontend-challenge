@@ -5,10 +5,9 @@
       class="similarActivitiesCarousel no-shadow"
       fade
       :visible-slides="4"
-      fixed-height="479px"
+      fixed-height="400px"
       :bullets="false"
       slide-multiple
-      :gap="2"
       disable-arrows-on-edges
     >
       <template #arrow-left>
