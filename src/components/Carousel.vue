@@ -6,6 +6,12 @@
     fixed-height="371px"
     class="slide"
   >
+    <template #arrow-left>
+      <img src="@/assets/leftArrow.svg" />
+    </template>
+    <template #arrow-right>
+      <img src="@/assets/rightArrow.svg" />
+    </template>
     <vueper-slide
       v-for="(image, i) in activity.image"
       :key="i"
