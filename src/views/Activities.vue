@@ -1,6 +1,9 @@
 <template>
   <div class="activitiesContainer">
-    <div class="activities">
+    <div class="activities" v-if="isLoading">
+      <SkeletonItem v-for="skeleton in 10" :key="skeleton" />
+    </div>
+    <div v-else class="activities">
       <ActivityItem
         v-for="activity in activities"
         :key="activity.id"
@@ -28,12 +31,14 @@
 
 <script setup>
 import ActivityItem from "@/components/ActivityItem.vue";
+import SkeletonItem from "@/components/SkeletonItem.vue";
 import paginationData from "@/helpers/paginationData.js";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 import { getActivitiesData } from "@/api";
 import { ref, onMounted, onUnmounted, watch } from "vue";
 const activities = ref([]);
+const isLoading = ref(true);
 const paginationInfo = paginationData();
 const amountOfActivities = paginationInfo.first._limit;
 const totalPages = 24;
@@ -45,6 +50,7 @@ async function fetchActivitiesData() {
     currentPage.value,
     amountOfActivities
   );
+  // isLoading.value = false;
 }
 
 const rangeSize = ref(window.innerWidth > 600 ? 2 : 0);

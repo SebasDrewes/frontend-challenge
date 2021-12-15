@@ -54,7 +54,7 @@ onMounted(fetchActivityData(props.id));
   margin-right: 104px;
 }
 .backArrow {
-  margin-bottom: 23px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 </style>
