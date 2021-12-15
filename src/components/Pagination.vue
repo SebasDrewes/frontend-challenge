@@ -1,30 +1,33 @@
 <template>
   <ul>
     <li>
-      <button>First</button>
+      <button @click="onClickFirstPage" :disabled="isInFirstPage">First</button>
     </li>
 
     <li>
-      <button>Previous</button>
+      <button @click="onClickPreviousPage" :disabled="isInFirstPage">
+        Previous
+      </button>
     </li>
 
     <li v-for="page in pages" :key="page.name">
-      <button :disabled="page.isDisabled">
+      <button @click="onClickPage(page.name)" :disabled="page.isDisabled">
         {{ page.name }}
       </button>
     </li>
 
     <li>
-      <button>Next</button>
+      <button @click="onClickNextPage" :disabled="isInLastPage">Next</button>
     </li>
 
     <li>
-      <button>Last</button>
+      <button @click="onClickLastPage" :disabled="isInLastPage">Last</button>
     </li>
   </ul>
 </template>
 
 <script setup>
+import { computed, defineEmit } from "vue";
 const props = defineProps([
   "maxVisibleButtons",
   "totalPages",
@@ -33,7 +36,7 @@ const props = defineProps([
 ]);
 
 const { currentPage, totalPages, perPage, maxVisibleButtons } = props;
-
+const emit = defineEmit(["pagechanged"]);
 const startPage = computed(() => {
   if (currentPage === 1) {
     return 1;
@@ -58,4 +61,25 @@ const pages = computed(() => {
 
   return range;
 });
+const isInFirstPage = computed(() => {
+  return currentPage === 1;
+});
+const isInLastPage = computed(() => {
+  return currentPage === totalPages;
+});
+function onClickFirstPage() {
+  defineEmit("pagechanged", 1);
+}
+function onClickPreviousPage() {
+  defineEmit("pagechanged", currentPage - 1);
+}
+function onClickPage(page) {
+  defineEmit("pagechanged", page);
+}
+function onClickNextPage() {
+  defineEmit("pagechanged", currentPage + 1);
+}
+function onClickLastPage() {
+  defineEmit("pagechanged", totalPages);
+}
 </script>
