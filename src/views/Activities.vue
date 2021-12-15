@@ -11,7 +11,7 @@
     <v-pagination
       v-model="currentPage"
       :pages="totalPages"
-      :range-size="2"
+      :range-size="rangeSize"
       active-color="#FF6C5E"
       @update:modelValue="getDataOfPage($event)"
       hideFirstButton
@@ -30,7 +30,7 @@ import paginationData from "@/helpers/paginationData.js";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 import { getActivitiesData } from "@/api";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, onUnmounted, watch } from "vue";
 const activities = ref([]);
 const paginationInfo = paginationData();
 const amountOfActivities = paginationInfo.first._limit;
@@ -44,6 +44,14 @@ async function fetchActivitiesData() {
     amountOfActivities
   );
 }
+
+const rangeSize = ref(window.innerWidth > 600 ? 2 : 0);
+function handleResize() {
+  rangeSize.value = window.innerWidth > 600 ? 2 : 0;
+}
+window.addEventListener("resize", handleResize);
+onUnmounted(() => window.removeEventListener("resize", handleResize));
+
 const currentPage = ref(firstPage);
 onMounted(fetchActivitiesData());
 function getDataOfPage(numberOfPage) {
@@ -130,5 +138,26 @@ watch(
   border-radius: 32px;
   background-color: #ff6c5e;
   fill: #ffffff;
+}
+@media (max-width: 1300px) {
+  .activities {
+    margin: 100px 20px 0 20px;
+  }
+}
+@media (max-width: 1180px) {
+  .activities {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    justify-items: center;
+    margin: 100px 50px 0 50px;
+  }
+}
+@media (max-width: 875px) {
+  .activities {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    margin: 50px 0 0 0;
+  }
 }
 </style>
