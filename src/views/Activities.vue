@@ -34,7 +34,7 @@ import { ref, onMounted, watch } from "vue";
 const activities = ref([]);
 const paginationInfo = pagination();
 const amountOfActivities = paginationInfo.first._limit;
-const totalPages = Math.ceil(paginationInfo.last._page / amountOfActivities);
+const totalPages = 24;
 const firstPage = paginationInfo.first._page;
 const lastPage = paginationInfo.last._page;
 const totalResults = amountOfActivities * totalPages;
