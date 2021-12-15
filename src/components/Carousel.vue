@@ -25,7 +25,6 @@
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 const props = defineProps(["activity"]);
-console.log(props.activity);
 </script>
 
 <style>

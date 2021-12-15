@@ -6,21 +6,21 @@
       :activity="activity"
       :medium="true"
     />
-    <div class="paginationContainer">
-      <v-pagination
-        v-model="currentPage"
-        :pages="totalPages"
-        :range-size="2"
-        active-color="#FF6C5E"
-        @update:modelValue="getDataOfPage($event)"
-        hideFirstButton
-        hideLastButton
-      />
+  </div>
+  <div class="paginationContainer">
+    <v-pagination
+      v-model="currentPage"
+      :pages="totalPages"
+      :range-size="2"
+      active-color="#FF6C5E"
+      @update:modelValue="getDataOfPage($event)"
+      hideFirstButton
+      hideLastButton
+    />
 
-      <p class="resultsText">
-        {{ firstPage }}-{{ totalPages }} de {{ totalResults }} resultados
-      </p>
-    </div>
+    <p class="resultsText">
+      {{ firstPage }}-{{ totalPages }} de {{ totalResults }} resultados
+    </p>
   </div>
 </template>
 
@@ -63,30 +63,36 @@ watch(
 </script>
 <style>
 .activities {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 100px 0 100px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 21px;
+  grid-row-gap: 44px;
+  margin: 110px 100px 0 100px;
 }
 .paginationContainer {
-  margin-top: 70px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .resultsText {
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
-  letter-spacing: 0px;
   color: #bdbdbd;
-  text-align: right;
+  margin-top: 25px;
+  margin-left: 25%;
 }
 .Page {
   font-size: 18px;
   color: #000000;
-  margin-left: 10px;
-  margin-right: 10px;
+  padding: 0;
+  margin-left: 7px;
+  margin-right: 7px;
   font-family: Quicksand;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 23px;
   width: 32px;
   height: 32px;
@@ -103,13 +109,13 @@ watch(
   height: 32px;
 }
 .PaginationControl {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 32px;
   background-color: #ff6c5e;
   color: white;
-  margin-left: 24px;
-  margin-right: 24px;
+  margin-left: 14px;
+  margin-right: 14px;
 }
 .Control {
   width: 32px;

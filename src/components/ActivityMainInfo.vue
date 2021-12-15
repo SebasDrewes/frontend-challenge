@@ -30,7 +30,6 @@
 <script setup>
 import Carousel from "./Carousel.vue";
 const props = defineProps(["activity"]);
-console.log(props);
 </script>
 
 <style scoped>
