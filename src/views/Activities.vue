@@ -31,15 +31,16 @@ import pagination from "@/helpers/pagination.js";
 import { getActivitiesData } from "@/api";
 import { ref, onMounted } from "vue";
 const activities = ref([]);
+const paginationInfo = pagination();
 async function fetchActivitiesData() {
   activities.value = await getActivitiesData(page.value, amountOfActivities);
 }
-const page = ref(1);
-const amountOfActivities = 9;
+const page = ref(paginationInfo.first._page);
+const amountOfActivities = paginationInfo.first._limit;
 onMounted(fetchActivitiesData());
 
-const totalPages = Math.ceil(pagination().last._page / amountOfActivities);
-console.log(totalPages);
+const totalPages = Math.ceil(paginationInfo.last._page / amountOfActivities);
+
 function getDataOfPage(numberOfPage) {
   page.value = numberOfPage;
   fetchActivitiesData();
