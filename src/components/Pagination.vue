@@ -1,26 +1,30 @@
 <template>
-  <ul>
-    <li>
+  <ul class="pagination">
+    <li class="pagination-item">
       <button @click="onClickFirstPage" :disabled="isInFirstPage">First</button>
     </li>
 
-    <li>
+    <li class="pagination-item">
       <button @click="onClickPreviousPage" :disabled="isInFirstPage">
         Previous
       </button>
     </li>
 
-    <li v-for="page in pages" :key="page.name">
-      <button @click="onClickPage(page.name)" :disabled="page.isDisabled">
+    <li v-for="page in pages" :key="page.name" class="pagination-item">
+      <button
+        @click="onClickPage(page.name)"
+        :disabled="page.isDisabled"
+        :class="{ active: isPageActive(page.name) }"
+      >
         {{ page.name }}
       </button>
     </li>
 
-    <li>
+    <li class="pagination-item">
       <button @click="onClickNextPage" :disabled="isInLastPage">Next</button>
     </li>
 
-    <li>
+    <li class="pagination-item">
       <button @click="onClickLastPage" :disabled="isInLastPage">Last</button>
     </li>
   </ul>
@@ -82,4 +86,21 @@ function onClickNextPage() {
 function onClickLastPage() {
   defineEmit("pagechanged", totalPages);
 }
+function isPageActive(page) {
+  return currentPage === page;
+}
 </script>
+<style scoped>
+.pagination {
+  list-style-type: none;
+}
+
+.pagination-item {
+  display: inline-block;
+}
+
+.active {
+  background-color: #4aae9b;
+  color: #ffffff;
+}
+</style>
