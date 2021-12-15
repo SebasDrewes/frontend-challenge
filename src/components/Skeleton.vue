@@ -73,4 +73,15 @@ const props = defineProps(["big", "medium"]);
   border-radius: 4px;
   background-color: #eee;
 }
+@media (max-width: 1100px) {
+  .skeletonDetail {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+  .skeletonDetailTextContainer {
+    margin: 20px 0 0 0;
+    width: 70%;
+  }
+}
 </style>
