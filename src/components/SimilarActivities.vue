@@ -80,8 +80,8 @@ watch(
 }
 @media (max-width: 780px) {
   .similarActivitiesCarousel {
-    max-width: 48%;
-    margin-left: 30%;
+    max-width: 40%;
+    margin-left: 22%;
   }
 }
 </style>

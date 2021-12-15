@@ -16,7 +16,7 @@
     <ActivityMainInfo :activity="activity" />
     <ActivityIncludesInfo :activity="activity" />
     <ActivityRules :activity="activity" />
-    <SimilarActivities :category="activity.category" />
+    <SimilarActivities />
   </div>
 </template>
 
@@ -46,7 +46,7 @@ async function fetchActivityData(id) {
 watch(
   () => route.params.id,
   () => {
-    fetchActivityData(route.params.id);
+    if (route.params.id) fetchActivityData(route.params.id);
   }
 );
 onMounted(fetchActivityData(props.id));

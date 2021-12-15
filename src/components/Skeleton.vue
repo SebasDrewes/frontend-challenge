@@ -81,7 +81,7 @@ const props = defineProps(["big", "medium"]);
   }
   .skeletonDetailTextContainer {
     margin: 20px 0 0 0;
-    width: 70%;
+    width: 650px;
   }
 }
 </style>
