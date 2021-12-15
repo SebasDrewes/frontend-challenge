@@ -50,7 +50,7 @@ async function fetchActivitiesData() {
     currentPage.value,
     amountOfActivities
   );
-  // isLoading.value = false;
+  isLoading.value = false;
 }
 
 const rangeSize = ref(window.innerWidth > 600 ? 2 : 0);
@@ -63,6 +63,7 @@ onUnmounted(() => window.removeEventListener("resize", handleResize));
 const currentPage = ref(firstPage);
 onMounted(fetchActivitiesData());
 function getDataOfPage(numberOfPage) {
+  isLoading.value = true;
   currentPage.value = numberOfPage;
 }
 watch(
