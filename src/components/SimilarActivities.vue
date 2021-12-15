@@ -72,7 +72,16 @@ watch(
   letter-spacing: -1px;
   margin: 64px 0 30px;
 }
-.similarActivitiesCarousel {
-  width: 100%;
+@media (max-width: 1100px) {
+  .similarActivitiesCarousel {
+    max-width: 80%;
+    margin-left: 10%;
+  }
+}
+@media (max-width: 780px) {
+  .similarActivitiesCarousel {
+    max-width: 48%;
+    margin-left: 30%;
+  }
 }
 </style>

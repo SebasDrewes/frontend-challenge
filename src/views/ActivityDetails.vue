@@ -63,4 +63,12 @@ onMounted(fetchActivityData(props.id));
   margin-bottom: 20px;
   cursor: pointer;
 }
+@media (max-width: 1100px) {
+  .activityDetail {
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-bottom: 11px;
+    margin-right: 10px;
+  }
+}
 </style>

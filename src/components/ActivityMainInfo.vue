@@ -83,4 +83,14 @@ const props = defineProps(["activity"]);
   line-height: 30px;
   margin: 0;
 }
+@media (max-width: 1100px) {
+  .mainActivityDescription {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+  .activityDescriptionContainer {
+    margin: 20px 0 0 0;
+  }
+}
 </style>

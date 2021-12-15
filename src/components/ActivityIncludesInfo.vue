@@ -58,4 +58,9 @@ const props = defineProps(["activity"]);
 .activityBenefits >>> li {
   margin-bottom: 20px;
 }
+@media (max-width: 1100px) {
+  .includesContainer {
+    width: 100%;
+  }
+}
 </style>

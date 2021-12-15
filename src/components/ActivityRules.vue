@@ -37,4 +37,9 @@ const props = defineProps(["activity"]);
   letter-spacing: 0px;
   color: #4f4f4f;
 }
+@media (max-width: 1100px) {
+  .rulesContainer {
+    width: 100%;
+  }
+}
 </style>
