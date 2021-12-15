@@ -1,7 +1,7 @@
 <template>
   <div class="activitiesContainer">
     <div class="activities" v-if="isLoading">
-      <SkeletonItem v-for="skeleton in 9" :key="skeleton" />
+      <Skeleton v-for="skeleton in 9" :key="skeleton" :medium="true" />
     </div>
     <div v-else class="activities">
       <ActivityItem
@@ -31,7 +31,7 @@
 
 <script setup>
 import ActivityItem from "@/components/ActivityItem.vue";
-import SkeletonItem from "@/components/SkeletonItem.vue";
+import Skeleton from "@/components/Skeleton.vue";
 import paginationData from "@/helpers/paginationData.js";
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";

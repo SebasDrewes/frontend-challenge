@@ -1,6 +1,11 @@
 <template>
-  <div v-if="isLoading">
-    <p>Loading...</p>
+  <div v-if="isLoading" class="activityDetail">
+    <img
+      class="backArrow"
+      src="@/assets/backArrow.svg"
+      @click="goToActividades"
+    />
+    <Skeleton :big="true" />
   </div>
   <div v-else class="activityDetail">
     <img
@@ -20,6 +25,7 @@ import ActivityMainInfo from "@/components/ActivityMainInfo.vue";
 import ActivityIncludesInfo from "@/components/ActivityIncludesInfo.vue";
 import ActivityRules from "@/components/ActivityRules.vue";
 import SimilarActivities from "@/components/SimilarActivities.vue";
+import Skeleton from "@/components/Skeleton.vue";
 import { getActivity } from "@/api";
 import { ref, onMounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";

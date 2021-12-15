@@ -13,10 +13,10 @@
       :breakpoints="carouselBreakpoints"
     >
       <template #arrow-left>
-        <img src="@/assets/blackLeftArrow.svg" class="blackArrow" />
+        <img src="@/assets/blackLeftArrow.svg" />
       </template>
       <template #arrow-right>
-        <img src="@/assets/blackRightArrow.svg" class="blackArrow" />
+        <img src="@/assets/blackRightArrow.svg" />
       </template>
       <vueper-slide v-for="activity in similarActivitesData" :key="activity.id">
         <template v-slot:content>
@@ -50,7 +50,6 @@ const carouselBreakpoints = {
 async function fetchActivityData() {
   const activityData = await randomActivities(8);
   similarActivitesData.value = activityData;
-  console.log(activityData);
 }
 onMounted(fetchActivityData());
 watch(
@@ -75,8 +74,5 @@ watch(
 }
 .similarActivitiesCarousel {
   width: 100%;
-}
-.blackArrow {
-  fill: black;
 }
 </style>
