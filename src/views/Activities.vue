@@ -6,17 +6,22 @@
       :activity="activity"
       :medium="true"
     />
-    <v-pagination
-      v-model="currentPage"
-      :pages="totalPages"
-      :range-size="2"
-      active-color="#FF6C5E"
-      @update:modelValue="getDataOfPage($event)"
-      hideFirstButton
-      hideLastButton
-    />
+    <div class="paginationContainer">
+      <v-pagination
+        v-model="currentPage"
+        :pages="totalPages"
+        :range-size="2"
+        active-color="#FF6C5E"
+        @update:modelValue="getDataOfPage($event)"
+        hideFirstButton
+        hideLastButton
+      />
+
+      <p class="resultsText">
+        {{ firstPage }}-{{ totalPages }} de {{ totalResults }} resultados
+      </p>
+    </div>
   </div>
-  <p>{{ firstPage }}-{{ totalPages }} de {{ totalResults }}</p>
 </template>
 
 <script setup>
@@ -30,6 +35,7 @@ const activities = ref([]);
 const paginationInfo = paginationData();
 const amountOfActivities = paginationInfo.first._limit;
 const totalPages = 24;
+const totalResults = paginationInfo.last._page;
 const firstPage = Number(paginationInfo.first._page);
 
 async function fetchActivitiesData() {
@@ -47,11 +53,11 @@ watch(
   () => currentPage.value,
   () => {
     fetchActivitiesData();
-    window.scrollTo({
+    /* window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
-    });
+    });*/
   }
 );
 </script>
@@ -62,25 +68,61 @@ watch(
   justify-content: center;
   margin: 100px 0 100px 0;
 }
-.pagination {
-  display: flex;
+.paginationContainer {
+  margin-top: 70px;
+}
+.resultsText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #bdbdbd;
+  text-align: right;
 }
 .Page {
   font-size: 18px;
-  margin-left: 16px;
-  margin-right: 16px;
+  color: #000000;
+  margin-left: 10px;
+  margin-right: 10px;
   font-family: Quicksand;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 23px;
   width: 32px;
   height: 32px;
   border-radius: 32px;
 }
+
 .Page-active {
   color: white;
+  border: none;
 }
 .DotsHolder {
   font-size: 16px;
+  width: 32px;
+  height: 32px;
+}
+.PaginationControl {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-color: #ff6c5e;
+  color: white;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.Control {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-color: #ff6c5e;
+  fill: #ffffff;
+}
+.Control-active {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-color: #ff6c5e;
+  fill: #ffffff;
 }
 </style>
