@@ -23,6 +23,7 @@
       <a href="#"> NEXT PAGE </a>
     </li>
   </ul>
+  <p>{{ firstPage }}-{{ totalPages }} de {{ totalResults }}</p>
 </template>
 
 <script setup>
@@ -32,20 +33,24 @@ import { getActivitiesData } from "@/api";
 import { ref, onMounted, watch } from "vue";
 const activities = ref([]);
 const paginationInfo = pagination();
+const amountOfActivities = paginationInfo.first._limit;
+const totalPages = Math.ceil(paginationInfo.last._page / amountOfActivities);
+const firstPage = paginationInfo.first._page;
+const lastPage = paginationInfo.last._page;
+const totalResults = amountOfActivities * totalPages;
+
 async function fetchActivitiesData() {
   activities.value = await getActivitiesData(page.value, amountOfActivities);
 }
-const page = ref(paginationInfo.first._page);
+const page = ref(firstPage);
 watch(
   () => page.value,
   () => {
     fetchActivitiesData();
   }
 );
-const amountOfActivities = paginationInfo.first._limit;
-onMounted(fetchActivitiesData());
 
-const totalPages = Math.ceil(paginationInfo.last._page / amountOfActivities);
+onMounted(fetchActivitiesData());
 
 function getDataOfPage(numberOfPage) {
   page.value = numberOfPage;
