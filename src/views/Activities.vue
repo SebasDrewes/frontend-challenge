@@ -12,12 +12,12 @@
       <a href="#"> PREVIOUS PAGE</a>
     </li>
     <li
-      v-for="pages in totalPages"
-      :key="pages"
-      v-on:click="getDataOfPage(pages)"
+      v-for="pageNumber in totalPages"
+      :key="pageNumber"
+      v-on:click="getDataOfPage(pageNumber)"
       class="pageItem"
     >
-      <a href="#">{{ pages }}</a>
+      <a href="#">{{ pageNumber }}</a>
     </li>
     <li v-on:click="getNextPage()" class="pageItem">
       <a href="#"> NEXT PAGE </a>
@@ -40,11 +40,14 @@ const lastPage = paginationInfo.last._page;
 const totalResults = amountOfActivities * totalPages;
 
 async function fetchActivitiesData() {
-  activities.value = await getActivitiesData(page.value, amountOfActivities);
+  activities.value = await getActivitiesData(
+    currentPage.value,
+    amountOfActivities
+  );
 }
-const page = ref(firstPage);
+const currentPage = ref(firstPage);
 watch(
-  () => page.value,
+  () => currentPage.value,
   () => {
     fetchActivitiesData();
   }
@@ -53,16 +56,16 @@ watch(
 onMounted(fetchActivitiesData());
 
 function getDataOfPage(numberOfPage) {
-  page.value = numberOfPage;
+  currentPage.value = numberOfPage;
 }
 function getPreviousPage() {
-  if (page.value > 1) {
-    page.value = page.value - 1;
+  if (currentPage.value > 1) {
+    currentPage.value = currentPage.value - 1;
   }
 }
 function getNextPage() {
-  if (page.value < totalPages) {
-    page.value = page.value + 1;
+  if (currentPage.value < totalPages) {
+    currentPage.value = currentPage.value + 1;
   }
 }
 </script>
