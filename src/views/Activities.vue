@@ -1,7 +1,7 @@
 <template>
   <div class="activitiesContainer">
     <div class="activities" v-if="isLoading">
-      <SkeletonItem v-for="skeleton in 10" :key="skeleton" />
+      <SkeletonItem v-for="skeleton in 9" :key="skeleton" />
     </div>
     <div v-else class="activities">
       <ActivityItem
@@ -50,7 +50,7 @@ async function fetchActivitiesData() {
     currentPage.value,
     amountOfActivities
   );
-  // isLoading.value = false;
+  isLoading.value = false;
 }
 
 const rangeSize = ref(window.innerWidth > 600 ? 2 : 0);

@@ -115,7 +115,6 @@ function toDetails(id) {
 }
 .mediumMarketPrice {
   font-size: 18px;
-  margin: 10px;
   text-align: left;
   font-weight: 600;
   line-height: 22.5px;
@@ -124,7 +123,7 @@ function toDetails(id) {
   position: absolute;
   bottom: 0;
   font-size: 18px;
-  margin: 0;
+  margin: 10px 0 10px;
   text-align: left;
   font-weight: 600;
   line-height: 22.5px;
