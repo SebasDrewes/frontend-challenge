@@ -172,4 +172,11 @@ watch(
     margin: 50px 0 50px 0;
   }
 }
+@media (max-width: 360px) {
+  .Page {
+    width: 16px;
+    height: 16px;
+    margin: 0 5px 0 5px;
+  }
+}
 </style>

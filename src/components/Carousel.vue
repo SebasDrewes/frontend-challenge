@@ -43,4 +43,9 @@ const props = defineProps(["activity"]);
 .vueperslides__bullet--active .default {
   background-color: #ff6c5e;
 }
+@media (max-width: 780px) {
+  .slide {
+    width: 90vw;
+  }
+}
 </style>

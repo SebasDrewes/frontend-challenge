@@ -46,6 +46,10 @@ const carouselBreakpoints = {
   780: {
     visibleSlides: 1,
   },
+  620: {
+    visibleSlides: 1,
+    arrowsOutside: false,
+  },
 };
 async function fetchActivityData() {
   const activityData = await randomActivities(8);
@@ -80,8 +84,26 @@ watch(
 }
 @media (max-width: 780px) {
   .similarActivitiesCarousel {
-    max-width: 40%;
+    max-width: 45vw;
     margin-left: 22%;
+  }
+}
+@media (max-width: 620px) {
+  .similarActivitiesCarousel {
+    max-width: 60vw;
+    margin-left: 15%;
+  }
+}
+@media (max-width: 470px) {
+  .similarActivitiesCarousel {
+    max-width: 70vw;
+    margin-left: 10%;
+  }
+}
+@media (max-width: 400px) {
+  .similarActivitiesCarousel {
+    max-width: 90vw;
+    margin-left: 0;
   }
 }
 </style>

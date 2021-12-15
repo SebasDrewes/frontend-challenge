@@ -61,4 +61,9 @@ const props = defineProps(["activity"]);
     width: 100%;
   }
 }
+@media (max-width: 780px) {
+  .greyLine {
+    width: 90vw;
+  }
+}
 </style>

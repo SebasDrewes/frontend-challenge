@@ -128,4 +128,9 @@ function toDetails(id) {
   font-weight: 600;
   line-height: 22.5px;
 }
+@media (max-width: 370px) {
+  .mediumActivityContainer {
+    width: 95vw;
+  }
+}
 </style>
