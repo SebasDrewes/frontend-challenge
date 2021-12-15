@@ -8,6 +8,7 @@
       fixed-height="400px"
       :bullets="false"
       slide-multiple
+      arrowsOutside
       disable-arrows-on-edges
       :breakpoints="carouselBreakpoints"
     >
@@ -44,7 +45,6 @@ const carouselBreakpoints = {
   },
   780: {
     visibleSlides: 1,
-    arrowsOutside: true,
   },
 };
 async function fetchActivityData() {
