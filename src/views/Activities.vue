@@ -10,8 +10,10 @@
       v-model="currentPage"
       :pages="totalPages"
       :range-size="2"
-      active-color="#DCEDFF"
+      active-color="#FF6C5E"
       @update:modelValue="getDataOfPage($event)"
+      hideFirstButton
+      hideLastButton
     />
   </div>
   <p>{{ firstPage }}-{{ totalPages }} de {{ totalResults }}</p>
@@ -53,7 +55,7 @@ watch(
   }
 );
 </script>
-<style scoped>
+<style>
 .activities {
   display: flex;
   flex-wrap: wrap;
@@ -63,8 +65,22 @@ watch(
 .pagination {
   display: flex;
 }
-.pageItem {
-  list-style-type: none;
-  margin: 10px;
+.Page {
+  font-size: 18px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-family: Quicksand;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 23px;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+}
+.Page-active {
+  color: white;
+}
+.DotsHolder {
+  font-size: 16px;
 }
 </style>
