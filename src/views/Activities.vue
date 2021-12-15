@@ -29,13 +29,19 @@
 import ActivityItem from "@/components/ActivityItem.vue";
 import pagination from "@/helpers/pagination.js";
 import { getActivitiesData } from "@/api";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 const activities = ref([]);
 const paginationInfo = pagination();
 async function fetchActivitiesData() {
   activities.value = await getActivitiesData(page.value, amountOfActivities);
 }
 const page = ref(paginationInfo.first._page);
+watch(
+  () => page.value,
+  () => {
+    fetchActivitiesData();
+  }
+);
 const amountOfActivities = paginationInfo.first._limit;
 onMounted(fetchActivitiesData());
 
@@ -43,19 +49,16 @@ const totalPages = Math.ceil(paginationInfo.last._page / amountOfActivities);
 
 function getDataOfPage(numberOfPage) {
   page.value = numberOfPage;
-  fetchActivitiesData();
 }
 function getPreviousPage() {
   if (page.value > 1) {
     page.value = page.value - 1;
   }
-  fetchActivitiesData();
 }
 function getNextPage() {
   if (page.value < totalPages) {
     page.value = page.value + 1;
   }
-  fetchActivitiesData();
 }
 </script>
 <style scoped>
