@@ -50,7 +50,7 @@ async function fetchActivitiesData() {
     currentPage.value,
     amountOfActivities
   );
-  isLoading.value = false;
+  // isLoading.value = false;
 }
 
 const rangeSize = ref(window.innerWidth > 600 ? 2 : 0);
