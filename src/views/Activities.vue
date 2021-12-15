@@ -1,26 +1,28 @@
 <template>
-  <div class="activities">
-    <ActivityItem
-      v-for="activity in activities"
-      :key="activity.id"
-      :activity="activity"
-      :medium="true"
-    />
-  </div>
-  <div class="paginationContainer">
-    <v-pagination
-      v-model="currentPage"
-      :pages="totalPages"
-      :range-size="rangeSize"
-      active-color="#FF6C5E"
-      @update:modelValue="getDataOfPage($event)"
-      hideFirstButton
-      hideLastButton
-    />
+  <div class="activitiesContainer">
+    <div class="activities">
+      <ActivityItem
+        v-for="activity in activities"
+        :key="activity.id"
+        :activity="activity"
+        :medium="true"
+      />
+    </div>
+    <div class="paginationContainer">
+      <v-pagination
+        v-model="currentPage"
+        :pages="totalPages"
+        :range-size="rangeSize"
+        active-color="#FF6C5E"
+        @update:modelValue="getDataOfPage($event)"
+        hideFirstButton
+        hideLastButton
+      />
 
-    <p class="resultsText">
-      {{ firstPage }}-{{ totalPages }} de {{ totalResults }} resultados
-    </p>
+      <p class="resultsText">
+        {{ firstPage }}-{{ totalPages }} de {{ totalResults }} resultados
+      </p>
+    </div>
   </div>
 </template>
 
@@ -70,13 +72,15 @@ watch(
 );
 </script>
 <style>
+.activitiesContainer {
+  margin: 110px 100px 100px 100px;
+}
 .activities {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 21px;
   grid-row-gap: 44px;
-  margin: 110px 100px 0 100px;
 }
 .paginationContainer {
   margin-top: 60px;
@@ -140,8 +144,8 @@ watch(
   fill: #ffffff;
 }
 @media (max-width: 1300px) {
-  .activities {
-    margin: 100px 20px 0 20px;
+  .activitiesContainer {
+    margin: 100px 20px 100px 20px;
   }
 }
 @media (max-width: 1180px) {
@@ -149,7 +153,9 @@ watch(
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
     justify-items: center;
-    margin: 100px 50px 0 50px;
+  }
+  .activitiesContainer {
+    margin: 100px 50px 100px 50px;
   }
 }
 @media (max-width: 875px) {
@@ -157,7 +163,9 @@ watch(
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-items: center;
-    margin: 50px 0 0 0;
+  }
+  .activitiesContainer {
+    margin: 50px 0 50px 0;
   }
 }
 </style>
