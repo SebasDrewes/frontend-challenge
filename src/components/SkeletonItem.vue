@@ -1,22 +1,33 @@
 <template>
   <div>
-    <div class="skeletonItem"></div>
-    <div class="skeletonText"></div>
+    <div class="skeletonImage"></div>
+    <div class="skeletonTextSmall"></div>
+    <div class="skeletonTextMedium"></div>
+    <div class="skeletonTextSmall"></div>
   </div>
 </template>
 
 <script></script>
 
 <style scoped>
-.skeletonItem {
+.skeletonImage {
   width: 369px;
   height: 240px;
+  border-radius: 4px;
   background-color: grey;
 }
-.skeletonText {
-  margin-top: 20px;
+.skeletonTextSmall {
+  margin-top: 10px;
   width: 369px;
-  height: 50px;
+  height: 35px;
+  border-radius: 4px;
+  background-color: grey;
+}
+.skeletonTextMedium {
+  margin-top: 10px;
+  width: 369px;
+  height: 60px;
+  border-radius: 4px;
   background-color: grey;
 }
 </style>
