@@ -64,7 +64,7 @@ function toDetails(id) {
   height: 379px;
   flex-direction: column;
   color: #464646;
-  width: 271px;
+  width: 265px;
   margin: 22px 11px;
   cursor: pointer;
 }
