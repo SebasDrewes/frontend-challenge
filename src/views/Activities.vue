@@ -100,15 +100,13 @@ watch(
   font-weight: 500;
   line-height: 20px;
   color: #bdbdbd;
-  margin-top: 25px;
-  margin-left: 25%;
+  margin: 25px 0 0 25%;
 }
 .Page {
   font-size: 18px;
   color: #000000;
   padding: 0;
-  margin-left: 7px;
-  margin-right: 7px;
+  margin: 0 7px 0 7px;
   font-family: Quicksand;
   font-size: 18px;
   font-weight: 500;
@@ -133,8 +131,7 @@ watch(
   border-radius: 32px;
   background-color: #ff6c5e;
   color: white;
-  margin-left: 14px;
-  margin-right: 14px;
+  margin: 0 14px 0 14px;
 }
 .Control {
   width: 32px;

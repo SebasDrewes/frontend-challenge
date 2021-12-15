@@ -19,8 +19,7 @@ const props = defineProps(["activity"]);
 .rulesTitleContainer {
   display: flex;
   align-items: center;
-  margin-top: 51px;
-  margin-bottom: 27px;
+  margin: 51px 0 27px;
 }
 .rulesTitle {
   font-size: 22px;

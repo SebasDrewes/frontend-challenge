@@ -54,10 +54,7 @@ onMounted(fetchActivityData(props.id));
 
 <style scoped>
 .activityDetail {
-  margin-top: 65px;
-  margin-left: 100px;
-  margin-bottom: 119px;
-  margin-right: 104px;
+  margin: 65px 104px 119px 100px;
 }
 .backArrow {
   margin-bottom: 20px;
@@ -65,10 +62,7 @@ onMounted(fetchActivityData(props.id));
 }
 @media (max-width: 1100px) {
   .activityDetail {
-    margin-top: 6px;
-    margin-left: 10px;
-    margin-bottom: 11px;
-    margin-right: 10px;
+    margin: 6px 10px 11px 10px;
   }
 }
 </style>

@@ -45,7 +45,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const props = defineProps(["activity", "small", "medium"]);
 function toDetails(id) {
-  router.push({ name: "ActivityDetails", params: { id: id } });
+  router.push({ name: "ActivityDetails", params: { id } });
 }
 </script>
 

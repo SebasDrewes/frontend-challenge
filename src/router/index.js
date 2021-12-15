@@ -13,6 +13,11 @@ const routes = [
     component: () => import("@/views/ActivityDetails.vue"),
     props: true,
   },
+  {
+    path: "/:catchAll(.*)",
+    name: "actividades",
+    component: Activities,
+  },
 ];
 
 const router = createRouter({
