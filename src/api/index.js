@@ -13,7 +13,7 @@ export function getActivity(id) {
     .then((activity) => JSON.parse(activity.activity));
 }
 export function randomActivities(amount) {
-  const randomPage = Math.random() * (200 - 1) + 1;
+  const randomPage = Math.random() * (230 - 1) + 1;
 
   return fetch(
     `https://json-biglifeapp.herokuapp.com/activity?_page=${randomPage}&_limit=${amount}`

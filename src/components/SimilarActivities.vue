@@ -9,6 +9,7 @@
       :bullets="false"
       slide-multiple
       disable-arrows-on-edges
+      :breakpoints="carouselBreakpoints"
     >
       <template #arrow-left>
         <img src="@/assets/blackLeftArrow.svg" class="blackArrow" />
@@ -34,7 +35,18 @@ import { ref, onMounted, watch } from "vue";
 import { randomActivities } from "@/api";
 const route = useRoute();
 const similarActivitesData = ref([]);
-
+const carouselBreakpoints = {
+  1200: {
+    visibleSlides: 3,
+  },
+  1000: {
+    visibleSlides: 2,
+  },
+  780: {
+    visibleSlides: 1,
+    arrowsOutside: true,
+  },
+};
 async function fetchActivityData() {
   const activityData = await randomActivities(8);
   similarActivitesData.value = activityData;
