@@ -6,36 +6,29 @@
       :activity="activity"
       :medium="true"
     />
+    <v-pagination
+      v-model="currentPage"
+      :pages="24"
+      :range-size="2"
+      active-color="#DCEDFF"
+      @update:modelValue="getDataOfPage($event)"
+    />
   </div>
-  <ul class="pagination">
-    <li v-on:click="getPreviousPage()" class="pageItem">
-      <a href="#"> PREVIOUS PAGE</a>
-    </li>
-    <li
-      v-for="pageNumber in totalPages"
-      :key="pageNumber"
-      v-on:click="getDataOfPage(pageNumber)"
-      class="pageItem"
-    >
-      <a href="#">{{ pageNumber }}</a>
-    </li>
-    <li v-on:click="getNextPage()" class="pageItem">
-      <a href="#"> NEXT PAGE </a>
-    </li>
-  </ul>
   <p>{{ firstPage }}-{{ totalPages }} de {{ totalResults }}</p>
 </template>
 
 <script setup>
 import ActivityItem from "@/components/ActivityItem.vue";
-import pagination from "@/helpers/pagination.js";
+import paginationData from "@/helpers/paginationData.js";
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 import { getActivitiesData } from "@/api";
 import { ref, onMounted, watch } from "vue";
 const activities = ref([]);
-const paginationInfo = pagination();
+const paginationInfo = paginationData();
 const amountOfActivities = paginationInfo.first._limit;
 const totalPages = 24;
-const firstPage = paginationInfo.first._page;
+const firstPage = Number(paginationInfo.first._page);
 const lastPage = paginationInfo.last._page;
 const totalResults = amountOfActivities * totalPages;
 
