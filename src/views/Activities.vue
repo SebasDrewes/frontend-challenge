@@ -8,7 +8,7 @@
     />
     <v-pagination
       v-model="currentPage"
-      :pages="24"
+      :pages="totalPages"
       :range-size="2"
       active-color="#DCEDFF"
       @update:modelValue="getDataOfPage($event)"
@@ -29,8 +29,6 @@ const paginationInfo = paginationData();
 const amountOfActivities = paginationInfo.first._limit;
 const totalPages = 24;
 const firstPage = Number(paginationInfo.first._page);
-const lastPage = paginationInfo.last._page;
-const totalResults = amountOfActivities * totalPages;
 
 async function fetchActivitiesData() {
   activities.value = await getActivitiesData(
@@ -39,28 +37,21 @@ async function fetchActivitiesData() {
   );
 }
 const currentPage = ref(firstPage);
+onMounted(fetchActivitiesData());
+function getDataOfPage(numberOfPage) {
+  currentPage.value = numberOfPage;
+}
 watch(
   () => currentPage.value,
   () => {
     fetchActivitiesData();
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   }
 );
-
-onMounted(fetchActivitiesData());
-
-function getDataOfPage(numberOfPage) {
-  currentPage.value = numberOfPage;
-}
-function getPreviousPage() {
-  if (currentPage.value > 1) {
-    currentPage.value = currentPage.value - 1;
-  }
-}
-function getNextPage() {
-  if (currentPage.value < totalPages) {
-    currentPage.value = currentPage.value + 1;
-  }
-}
 </script>
 <style scoped>
 .activities {
