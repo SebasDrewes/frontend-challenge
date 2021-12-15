@@ -943,6 +943,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@hennge/vue3-pagination@^1.0.17":
+  "integrity" "sha512-HV9blF/Us0IvRwWl2sOEmegxgKd0aVnjSxE1ksrsMnTv4F7FoLx/25M9gOszDJn7mFTi1kMapQoDGkaW+nbdvA=="
+  "resolved" "https://registry.npmjs.org/@hennge/vue3-pagination/-/vue3-pagination-1.0.17.tgz"
+  "version" "1.0.17"
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   "integrity" "sha512-zN69TnSr0viRSU6cEDIcuPcP67QcpQ6uHACg58FiN9PDrU6SLyGW3MR4tiISbYxy1kDWAVPwD+XwQTWE5cigAA=="
   "resolved" "https://registry.npmjs.org/@intervolga/optimize-cssnano-plugin/-/optimize-cssnano-plugin-1.0.6.tgz"
